@@ -11,7 +11,3 @@ export default function Item({ name, quantity, category }) {
       </li>
     )
 }
-
-/* <div className="w-full pr-4 border-r border-gray-400 flex items-center justify-center">
-    Could be used to center the text horizontally inside the div, not sure if it's needed.
-*/
