@@ -1,9 +1,13 @@
 import NewItem from "./new-item"
+import NavBar from "../nav-bar"
 
 export default function Home() {
     return (
-        <main>
-            <NewItem />
-        </main>
+        <>
+            <NavBar />
+            <main>
+                <NewItem />
+            </main>
+        </>
     )
 }
