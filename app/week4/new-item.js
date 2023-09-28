@@ -39,6 +39,7 @@ export default function NewItem(){
                 <div className = "flex flex-col m-4">
                     <label className="text-xl">Name: </label>
                     <input 
+                        placeholder = "Item Name"
                         type = "text"
                         required 
                         onChange = {handleNameChange} 
@@ -46,38 +47,40 @@ export default function NewItem(){
                         className ="border-2 border-gray-900 rounded p-2 text-black"
                     />
                 </div>
-                <div className = "flex flex-col m-4">
-                    <label className = "text-xl">Quantity: </label>
-                    <input 
-                        type = "number"
-                        min = "1"
-                        max = "99"
-                        required 
-                        onChange = {handleQuantityChange} 
-                        value = {quantity} 
-                        className = "border-2 border-gray-900 rounded p-2 text-black"
-                    />
-                </div>
-                <div className = "flex flex-col m-4">
-                    <label className = "text-xl">Category: </label>
-                    <select 
-                        required 
-                        onChange = {handleCategoryChange} 
-                        value = {category} 
-                        className = "border-2 border-gray-900 rounded p-2 text-black"
-                    >
-                        <option value = "produce">Produce</option>
-                        <option value = "dairy">Dairy</option>
-                        <option value = "bakery">Bakery</option>
-                        <option value = "meat">Meat</option>
-                        <option value = "frozen foods">Frozen Foods</option>
-                        <option value = "canned goods">Canned Goods</option>
-                        <option value = "dry goods">Dry Goods</option>
-                        <option value = "beverages">Beverages</option>
-                        <option value = "snacks">Snacks</option>
-                        <option value = "household">Household</option>
-                        <option value = "other">Other</option>
-                    </select>
+                <div>
+                    <div className = "flex flex-col m-4">
+                        <label className = "text-xl">Quantity: </label>
+                        <input 
+                            type = "number"
+                            min = "1"
+                            max = "99"
+                            required 
+                            onChange = {handleQuantityChange} 
+                            value = {quantity} 
+                            className = "border-2 border-gray-900 rounded p-2 text-black"
+                        />
+                    </div>
+                    <div className = "flex flex-col m-4">
+                        <label className = "text-xl">Category: </label>
+                        <select 
+                            required 
+                            onChange = {handleCategoryChange} 
+                            value = {category} 
+                            className = "border-2 border-gray-900 rounded p-2 text-black"
+                        >
+                            <option value = "produce">Produce</option>
+                            <option value = "dairy">Dairy</option>
+                            <option value = "bakery">Bakery</option>
+                            <option value = "meat">Meat</option>
+                            <option value = "frozen foods">Frozen Foods</option>
+                            <option value = "canned goods">Canned Goods</option>
+                            <option value = "dry goods">Dry Goods</option>
+                            <option value = "beverages">Beverages</option>
+                            <option value = "snacks">Snacks</option>
+                            <option value = "household">Household</option>
+                            <option value = "other">Other</option>
+                        </select>
+                    </div>
                 </div>
                 <div className = "flex flex-col m-4">
                     <button
