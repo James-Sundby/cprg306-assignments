@@ -33,7 +33,7 @@ export default function NewItem(){
     };
 
     return (
-        <div>
+        <div className = "flex flex-col w-full max-w-lg sm:w-fill bg-gray-600 p-2 m-2 rounded">
             <h1 className = "text-2xl m-4">Add Item</h1>
             <form onSubmit = {handleSubmit}>
                 <div className = "flex flex-col m-4">
@@ -47,7 +47,7 @@ export default function NewItem(){
                         className ="border-2 border-gray-900 rounded p-2 text-black"
                     />
                 </div>
-                <div>
+                <div className = "flex justify-between ">
                     <div className = "flex flex-col m-4">
                         <label className = "text-xl">Quantity: </label>
                         <input 
