@@ -5,9 +5,7 @@ export default function Home() {
     return (
         <>
             <NavBar />
-            <main>
-                <NewItem />
-            </main>
+            <NewItem />
         </>
     )
 }
