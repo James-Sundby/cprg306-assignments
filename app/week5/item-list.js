@@ -27,15 +27,15 @@ export default function ItemList() {
 
         <div className="flex flex-col w-full max-w-lg sm:w-fill bg-gray-800 p-2 m-2 border-2 border-gray-900 rounded"> 
           <div className="flex pb-2">Sort by: </div>
-          <div className="flex justify-between ">
+          <div className="flex">
             <button 
-              className={`${sortBy === 'name' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white w-28`}
+              className={`${sortBy === 'name' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
               onClick={() => setSortBy("name")}>Name</button>
             <button 
-              className={`${sortBy === 'category' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white w-28`}
+              className={`${sortBy === 'category' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
               onClick={() => setSortBy("category")}>Category</button>
             <button 
-                className={`${sortBy === 'grouped' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white w-56`}
+                className={`${sortBy === 'grouped' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-56`}
                 onClick={() => setSortBy("grouped")}>Grouped Categories</button>
           </div>
         </div>
