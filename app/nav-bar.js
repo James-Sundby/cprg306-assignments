@@ -4,16 +4,16 @@ export default function NavBar() {
     return (
         <>
             <div className = "flex justify-between p-2 ">
-                <div className = "font-bold mx-2">
+                <div className = "flex font-bold m-2 p-2">
                     <h1>CPRG 306: Web Development 2 - Assignment</h1>
                 </div>
                 <div className="flex">
-                    <div className = "font-bold mx-2 bg-gray-600 rounded px-2 hover:bg-gray-700">
+                    <button className = "font-bold m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
                             <Link href="/">Home</Link> 
-                    </div> 
-                    <div className = "font-bold mx-2 bg-gray-600 rounded px-2 hover:bg-gray-700">
+                    </button> 
+                    <button className = "font-bold m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
                             <Link href="https://github.com/James-Sundby">GitHub</Link> 
-                    </div>
+                    </button>
                 </div>
             </div>  
         </>
