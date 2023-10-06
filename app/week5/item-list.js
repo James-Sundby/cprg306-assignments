@@ -17,11 +17,6 @@ export default function ItemList() {
     group[category].sort((a, b) => a.name.localeCompare(b.name));
     return group;
     }, {});
-
-  // groupedItems = Object.keys(groupedItems).sort().reduce((sorted, key) => {
-  //   sorted[key] = groupedItems[key];
-  //   return sorted;
-  // }, {}); 
   
   if (sortBy === "name") {
     items.sort((a, b) => a.name.localeCompare(b.name))}
@@ -52,7 +47,7 @@ export default function ItemList() {
         {sortBy === 'grouped' && (
           <div>
             {Object.keys(groupedItems).map((category) => (
-            <div>
+            <div key={category}>
               <h3 className="capitalize">{category}</h3>
               <ul>
                 {groupedItems[category].map((item) => (
