@@ -9,6 +9,7 @@ export default function ItemList() {
 
   let items = [...itemsData]
 
+  // Adapted from provided Youtube video https://www.youtube.com/watch?v=s1XVfm5mIuU from Web Dev Simplified
   let groupedItems = items.reduce((group, item) => {
     let category = item.category
     if (group[category] == null) {
