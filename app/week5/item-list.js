@@ -7,7 +7,7 @@ import itemsData from "./items.json";
 export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
 
-  let items = itemsData.slice();
+  let items = [...itemsData]
 
   let groupedItems = items.reduce((group, item) => {
     let category = item.category
@@ -46,7 +46,7 @@ export default function ItemList() {
         )}
         {sortBy === 'grouped' && (
           <div>
-            {Object.keys(groupedItems).map((category) => (
+            {Object.keys(groupedItems).sort().map((category) => (
             <div key={category}>
               <h3 className="capitalize">{category}</h3>
               <ul>
