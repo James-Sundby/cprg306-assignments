@@ -5,13 +5,14 @@ export default function NavBar() {
         <>
             <div className = "flex justify-between p-2 ">
                 <div className = "flex font-bold m-2 p-2">
-                    <h1>CPRG 306: Web Development 2 - Assignment</h1>
+                    <h1 className="hidden md:block ">CPRG 306: Web Development 2 - Assignment</h1> 
+                    <h1 className="block md:hidden">CPRG 306</h1> 
                 </div>
                 <div className="flex">
-                    <button className = "font-bold m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
+                    <button className = "m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
                             <Link href="/">Home</Link> 
                     </button> 
-                    <button className = "font-bold m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
+                    <button className = "m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
                             <Link href="https://github.com/James-Sundby">GitHub</Link> 
                     </button>
                 </div>
@@ -19,3 +20,4 @@ export default function NavBar() {
         </>
     )
 }
+// 
