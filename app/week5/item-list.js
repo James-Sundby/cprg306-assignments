@@ -26,18 +26,22 @@ export default function ItemList() {
   
     return(
       <>
-        <div> 
-          <label className="">Sort by: </label>
-          <button 
-            className={`${sortBy === 'name' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
-            onClick={() => setSortBy("name")}>Name</button>
-          <button 
-            className={`${sortBy === 'category' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
-            onClick={() => setSortBy("category")}>Category</button>
-          <button 
-              className={`${sortBy === 'grouped' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-56`}
-              onClick={() => setSortBy("grouped")}>Grouped Categories</button>
+      
+        <div className="flex flex-col w-full max-w-lg sm:w-fill p-2 m-2 bg-red-500 "> 
+          <div className="flex justify-center">Sort by: </div>
+          <div className="flex ">
+            <button 
+              className={`${sortBy === 'name' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
+              onClick={() => setSortBy("name")}>Name</button>
+            <button 
+              className={`${sortBy === 'category' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-28`}
+              onClick={() => setSortBy("category")}>Category</button>
+            <button 
+                className={`${sortBy === 'grouped' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded p-2 text-white mx-2 w-56`}
+                onClick={() => setSortBy("grouped")}>Grouped Categories</button>
+          </div>
         </div>
+
         {(sortBy === 'name' || sortBy === 'category') && (
           <ul>
               {items.map((item) => (
@@ -49,7 +53,7 @@ export default function ItemList() {
           <div>
             {Object.keys(groupedItems).sort().map((category) => (
             <div key={category}>
-              <h3 className="capitalize">{category}</h3>
+              <h3 className="capitalize font-bold">{category}</h3>
               <ul>
                 {groupedItems[category].map((item) => (
                   <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category}/>
