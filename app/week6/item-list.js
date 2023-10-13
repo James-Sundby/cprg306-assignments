@@ -5,18 +5,17 @@ import Item from "./item.js";
 
 export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
+  const itemsData = [...items];
 
   // Adapted from provided Youtube video https://www.youtube.com/watch?v=s1XVfm5mIuU from Web Dev Simplified
-  let groupedItems = items.reduce((group, item) => {
-    let category = item.category
+  const groupedItems = items.reduce((group, item) => {
+    const category = item.category
     if (group[category] == null) {
       group[category] = [];}
     group[category].push(item);
     group[category].sort((a, b) => a.name.localeCompare(b.name));
     return group;
     }, {});
-
-  let itemsData = items.slice();
   
   if (sortBy === "name") {
     itemsData.sort((a, b) => a.name.localeCompare(b.name))}
@@ -27,7 +26,7 @@ export default function ItemList({ items }) {
       <>
 
         <div className="flex flex-col w-full max-w-lg sm:w-fill bg-gray-800 p-2 m-2 border-2 border-gray-900 rounded-lg"> 
-          <div className="flex pb-2">Sort by: </div>
+          <h2 className="flex pb-2">Sort by: </h2>
           <div className="flex">
             <button 
               className={`${sortBy === 'name' ? 'bg-gray-400' : 'bg-gray-600'} border-2 border-gray-900 rounded-lg p-2 text-white mx-2 w-28`}
@@ -48,6 +47,7 @@ export default function ItemList({ items }) {
               ))}
           </ul>
         )}
+
         {sortBy === 'grouped' && (
           <div>
             {Object.keys(groupedItems).sort().map((category) => (

@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function NavBar() {
     return (
         <>
-            <div className = "flex justify-between p-2 ">
+            <nav className = "flex justify-between p-2 ">
                 <div className = "flex font-bold m-2 p-2">
-                    <h1 className="hidden md:block ">CPRG 306: Web Development 2 - Assignment</h1> 
-                    <h1 className="block md:hidden">CPRG 306</h1> 
+                    <p className="hidden md:block ">CPRG 306: Web Development 2 - Assignment</p> 
+                    <p className="block md:hidden">CPRG 306</p> 
                 </div>
                 <div className="flex">
                     <button className = "m-2 bg-gray-600 rounded p-2 hover:bg-gray-700 border-2 border-gray-900 text-white w-28">
@@ -16,7 +16,7 @@ export default function NavBar() {
                             <Link href="https://github.com/James-Sundby">GitHub</Link> 
                     </button>
                 </div>
-            </div>  
+            </nav>  
         </>
     )
 }

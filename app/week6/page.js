@@ -23,9 +23,7 @@ export default function Home() {
             <NavBar />
             <main>
                 <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
-                <NewItem 
-                    onAddItem={handleAddItem}
-                />
+                <NewItem onAddItem={handleAddItem}/>
                 <ItemList items={items}/>
             </main>
         </>     
