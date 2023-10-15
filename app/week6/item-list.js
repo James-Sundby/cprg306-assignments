@@ -26,36 +26,32 @@ export default function ItemList({ items }) {
 
   return (
     <>
-      <div className="flex flex-col w-full max-w-lg sm:w-fill bg-gray-800 p-2 m-2 border-2 border-gray-900 rounded-lg">
-        <h2 className="flex pb-2">Sort by: </h2>
-        <div className="flex">
-          <button
-            className={`${
-              sortBy === "name" ? "bg-gray-400" : "bg-gray-600"
-            } border-2 border-gray-900 rounded-lg p-2 text-white mx-2 w-28`}
+      <div className="ml-2 max-w-lg mb-2">
+        <div className="join flex">
+          <input
+            className="join-item btn flex-grow"
+            type="radio"
+            name="sort-options"
+            aria-label="Name"
             onClick={() => setSortBy("name")}
-          >
-            Name
-          </button>
-          <button
-            className={`${
-              sortBy === "category" ? "bg-gray-400" : "bg-gray-600"
-            } border-2 border-gray-900 rounded-lg p-2 text-white mx-2 w-28`}
+            defaultChecked
+          />
+          <input
+            className="join-item btn flex-grow"
+            type="radio"
+            name="sort-options"
+            aria-label="Category"
             onClick={() => setSortBy("category")}
-          >
-            Category
-          </button>
-          <button
-            className={`${
-              sortBy === "grouped" ? "bg-gray-400" : "bg-gray-600"
-            } border-2 border-gray-900 rounded-lg p-2 text-white mx-2 w-56`}
+          />
+          <input
+            className="join-item btn flex-grow"
+            type="radio"
+            name="sort-options"
+            aria-label="Grouped Categories"
             onClick={() => setSortBy("grouped")}
-          >
-            Grouped Categories
-          </button>
+          />
         </div>
       </div>
-
       {(sortBy === "name" || sortBy === "category") && (
         <ul>
           {itemsData.map((item) => (
@@ -68,7 +64,6 @@ export default function ItemList({ items }) {
           ))}
         </ul>
       )}
-
       {sortBy === "grouped" && (
         <div>
           {Object.keys(groupedItems)

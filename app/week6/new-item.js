@@ -31,20 +31,17 @@ export default function NewItem({ onAddItem }) {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-lg sm:w-fill bg-gray-800 p-2 m-2 border-2 border-gray-900 rounded-lg justify-center">
-      <h2 className="flex pb-2">Add New Item</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col pb-2 mx-2">
-          <input
-            placeholder="Item Name"
-            type="text"
-            required
-            onChange={handleNameChange}
-            value={name}
-            className="border-2 border-gray-900 rounded-lg p-2 text-black font-sans"
-          />
-        </div>
-        <div className="flex justify-between pb-2">
+    <div className="card bg-base-200 max-w-lg ml-2 mb-2">
+      <form className="card-body" onSubmit={handleSubmit}>
+        <input
+          placeholder="Item Name"
+          type="text"
+          required
+          onChange={handleNameChange}
+          value={name}
+          className="input input-sm md:input-md input-bordered"
+        />
+        <div className="flex justify-between">
           <input
             type="number"
             min="1"
@@ -52,13 +49,13 @@ export default function NewItem({ onAddItem }) {
             required
             onChange={handleQuantityChange}
             value={quantity}
-            className="border-2 border-gray-900 rounded-lg p-2 text-black mx-2 w-28"
+            className="input input-sm md:input-md input-bordered"
           />
           <select
             required
             onChange={handleCategoryChange}
             value={category}
-            className="border-2 border-gray-900 rounded-lg p-2 text-black mx-2 w-56"
+            className="select select-sm md:select-md select-bordered"
           >
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
@@ -74,11 +71,8 @@ export default function NewItem({ onAddItem }) {
           </select>
         </div>
         <div className="flex flex-col">
-          <button
-            type="submit"
-            className="bg-gray-600 border-2 border-gray-900 text-white rounded-lg p-2 mx-2 hover:bg-gray-700"
-          >
-            Save
+          <button type="submit" className="btn btn-sm md:btn-md  btn-primary">
+            Add Item
           </button>
         </div>
       </form>
