@@ -31,57 +31,59 @@ export default function NewItem({ onAddItem }) {
   };
 
   return (
-    <div className="collapse collapse-arrow max-w-lg mx-2 mb-2">
-      <input type="checkbox" className="peer" />
-      <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary">
-        <p className="aria">Add Item</p>
-      </div>
-      <div className="collapse-content bg-base-200 text-base-content peer-checked:bg-base-200">
-        <form className="card-body" onSubmit={handleSubmit}>
-          <input
-            placeholder="Item Name"
-            type="text"
-            required
-            onChange={handleNameChange}
-            value={name}
-            className="input input-bordered"
-          />
-          <div className="flex justify-between space-x-2">
+    <div className="max-w-lg mx-2 mb-2">
+      <div className="collapse collapse-arrow ">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary">
+          <p className="uppercase font-semibold text-lg">Add Item</p>
+        </div>
+        <div className="collapse-content bg-base-200 text-base-content peer-checked:bg-base-200">
+          <form className="card-body" onSubmit={handleSubmit}>
             <input
-              type="number"
-              min="1"
-              max="99"
+              placeholder="Item Name"
+              type="text"
               required
-              onChange={handleQuantityChange}
-              value={quantity}
-              className="input input-bordered w-32"
+              onChange={handleNameChange}
+              value={name}
+              className="input input-bordered"
             />
-            <select
-              required
-              onChange={handleCategoryChange}
-              value={category}
-              className="select select-bordered flex-grow"
-            >
-              <option disabled>Select a Category</option>
-              <option value="produce">Produce</option>
-              <option value="dairy">Dairy</option>
-              <option value="bakery">Bakery</option>
-              <option value="meat">Meat</option>
-              <option value="frozen foods">Frozen Foods</option>
-              <option value="canned goods">Canned Goods</option>
-              <option value="dry goods">Dry Goods</option>
-              <option value="beverages">Beverages</option>
-              <option value="snacks">Snacks</option>
-              <option value="household">Household</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div className="flex flex-col">
-            <button type="submit" className="btn btn-primary">
-              Save
-            </button>
-          </div>
-        </form>
+            <div className="flex justify-between space-x-2">
+              <input
+                type="number"
+                min="1"
+                max="99"
+                required
+                onChange={handleQuantityChange}
+                value={quantity}
+                className="input input-bordered w-32"
+              />
+              <select
+                required
+                onChange={handleCategoryChange}
+                value={category}
+                className="select select-bordered flex-grow"
+              >
+                <option disabled>Select a Category</option>
+                <option value="produce">Produce</option>
+                <option value="dairy">Dairy</option>
+                <option value="bakery">Bakery</option>
+                <option value="meat">Meat</option>
+                <option value="frozen foods">Frozen Foods</option>
+                <option value="canned goods">Canned Goods</option>
+                <option value="dry goods">Dry Goods</option>
+                <option value="beverages">Beverages</option>
+                <option value="snacks">Snacks</option>
+                <option value="household">Household</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="flex flex-col">
+              <button type="submit" className="btn btn-primary">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
