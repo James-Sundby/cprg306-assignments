@@ -14,13 +14,17 @@ export default function Home() {
     setItems([...items, item]);
   };
 
+  const handleRemoveItem = (name) => {
+    setItems(items.filter((i) => i.name !== name));
+  };
+
   return (
     <>
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
         <NewItem onAddItem={handleAddItem} />
-        <ItemList items={items} />
+        <ItemList items={items} onDelete={handleRemoveItem} />
       </main>
     </>
   );

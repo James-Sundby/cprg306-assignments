@@ -1,4 +1,4 @@
-export default function Item({ name, quantity, category }) {
+export default function Item({ name, quantity, category, onDelete }) {
   return (
     <li>
       <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
@@ -14,7 +14,9 @@ export default function Item({ name, quantity, category }) {
             </p>
           </div>
           <div className="card-actions">
-            <button className="btn btn-primary">Remove</button>
+            <button onClick={() => onDelete(name)} className="btn btn-primary">
+              Remove
+            </button>
           </div>
         </div>
       </div>
