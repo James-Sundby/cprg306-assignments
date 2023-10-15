@@ -39,9 +39,9 @@ export default function NewItem({ onAddItem }) {
           required
           onChange={handleNameChange}
           value={name}
-          className="input input-sm md:input-md input-bordered"
+          className="input input-bordered"
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between space-x-2">
           <input
             type="number"
             min="1"
@@ -49,13 +49,13 @@ export default function NewItem({ onAddItem }) {
             required
             onChange={handleQuantityChange}
             value={quantity}
-            className="input input-sm md:input-md input-bordered"
+            className="input input-bordered w-32"
           />
           <select
             required
             onChange={handleCategoryChange}
             value={category}
-            className="select select-sm md:select-md select-bordered"
+            className="select select-bordered flex-grow"
           >
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
@@ -71,7 +71,7 @@ export default function NewItem({ onAddItem }) {
           </select>
         </div>
         <div className="flex flex-col">
-          <button type="submit" className="btn btn-sm md:btn-md  btn-primary">
+          <button type="submit" className="btn btn-primary">
             Add Item
           </button>
         </div>
