@@ -31,7 +31,7 @@ export default function NewItem({ onAddItem }) {
   };
 
   return (
-    <div className="card bg-base-200 max-w-lg ml-2 mb-2">
+    <div className="card bg-base-200 max-w-lg mx-2 mb-2">
       <form className="card-body" onSubmit={handleSubmit}>
         <input
           placeholder="Item Name"
@@ -57,6 +57,7 @@ export default function NewItem({ onAddItem }) {
             value={category}
             className="select select-bordered flex-grow"
           >
+            <option disabled>Select a Category</option>
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
             <option value="bakery">Bakery</option>

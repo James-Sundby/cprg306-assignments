@@ -26,7 +26,7 @@ export default function ItemList({ items }) {
 
   return (
     <>
-      <div className="ml-2 max-w-lg mb-2">
+      <div className="mx-2 max-w-lg mb-2">
         <div className="join flex">
           <input
             className="join-item btn flex-grow"
