@@ -41,7 +41,7 @@ export default function NewItem({ onAddItem }) {
           value={name}
           className="input input-bordered"
         />
-        <div className="flex justify-between space-x-2">
+        <div className="flex space-x-2">
           <input
             type="number"
             min="1"
@@ -49,7 +49,7 @@ export default function NewItem({ onAddItem }) {
             required
             onChange={handleQuantityChange}
             value={quantity}
-            className="input input-bordered w-32"
+            className="input input-bordered w-1/4"
           />
           <select
             required
