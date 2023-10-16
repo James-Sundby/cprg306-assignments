@@ -29,7 +29,7 @@ export default function ItemList({ items, onDelete }) {
       <div className="mx-2 max-w-lg mb-2">
         <div className="join flex">
           <input
-            className="join-item btn flex-grow"
+            className="join-item btn flex-1"
             type="radio"
             name="sort-options"
             aria-label="Name"
@@ -37,14 +37,14 @@ export default function ItemList({ items, onDelete }) {
             defaultChecked
           />
           <input
-            className="join-item btn flex-grow"
+            className="join-item btn flex-1"
             type="radio"
             name="sort-options"
             aria-label="Category"
             onClick={() => setSortBy("category")}
           />
           <input
-            className="join-item btn flex-grow"
+            className="join-item btn flex-1"
             type="radio"
             name="sort-options"
             aria-label="Grouped Categories"
