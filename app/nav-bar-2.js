@@ -99,7 +99,7 @@ export default function NavBar() {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52 right-0 mr-2"
+            className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52 right-0 mr-2"
           >
             <button className="btn btn-sm btn-ghost" data-set-theme="dracula">
               Default
@@ -125,4 +125,3 @@ export default function NavBar() {
     </>
   );
 }
-//
