@@ -32,7 +32,7 @@ export default function NewItem({ onAddItem }) {
 
   return (
     <div className="max-w-lg mx-2 mb-2">
-      <div className="collapse collapse-arrow">
+      <div className="collapse collapse-plus">
         <input type="checkbox" className="peer" />
         <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary">
           <p className="uppercase font-semibold text-lg">Add Item</p>
