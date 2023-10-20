@@ -37,7 +37,7 @@ export default function MealIdeas({ ingredient }) {
                 <p>{`Here are some meal ideas using ${ingredient}:`}</p>
                 <ul>
                   {meals.map((meal) => (
-                    <li className="" key={meal.idMeal}>
+                    <li className="hover:btn-active" key={meal.idMeal}>
                       {meal.strMeal}
                     </li>
                   ))}
