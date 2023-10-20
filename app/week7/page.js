@@ -28,13 +28,19 @@ export default function Home() {
       .toLowerCase();
     setSelectedItemName(cleanedName);
   };
-  console.log(selectedItemName);
 
   return (
     <>
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
+        {selectedItemName !== "" && (
+          <div className="chat chat-start mx-2 mb-2 display lg:hidden">
+            <div className="chat-bubble chat-bubble-accent">
+              Slide to see meal ideas
+            </div>
+          </div>
+        )}
         <div className="carousel w-screen">
           <div className="carousel-item lg:max-wd-lg">
             <div className="carousel-content-wrapper w-screen lg:w-auto">

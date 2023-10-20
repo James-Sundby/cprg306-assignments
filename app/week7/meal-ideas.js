@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
 
-  const fetchMealIdeas = async () => {
+  async function fetchMealIdeas() {
     setMeals([]);
     if (!ingredient) {
       return;
@@ -20,7 +20,7 @@ export default function MealIdeas({ ingredient }) {
       console.error("Error fetching meal ideas:", error);
       setMeals([]);
     }
-  };
+  }
 
   useEffect(() => {
     fetchMealIdeas();
