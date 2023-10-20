@@ -27,7 +27,7 @@ export default function MealIdeas({ ingredient }) {
   }, [ingredient]);
 
   return (
-    <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
+    <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 hidden">
       <div className="card-body">
         <p className="card-title text-2xl">Meal Ideas</p>
         {ingredient ? (
