@@ -31,18 +31,14 @@ export default function NewItem({ onAddItem }) {
   };
 
   return (
-    <>
-      <div className="flex max-w-lg mx-2 mb-2">
-        <button
-          className="flex-1 btn btn-primary"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
+    <div className="max-w-lg mx-2 mb-2">
+      <div className="collapse collapse-arrow">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary">
           Add Item to List
-        </button>
-      </div>
-      <dialog id="my_modal_1" className="modal">
-        <div className=" bg-base-200 max-w-lg mx-2 mb-2 modal-box modal-top lg:modal-middle p-0">
-          <form className="card-body" onSubmit={handleSubmit} method="dialog">
+        </div>
+        <div className="bg-base-200 collapse-content">
+          <form className="card-body" onSubmit={handleSubmit}>
             <input
               placeholder="Item Name"
               type="text"
@@ -81,22 +77,14 @@ export default function NewItem({ onAddItem }) {
                 <option value="other">Other</option>
               </select>
             </div>
-            <div className="flex gap-2">
+            <div className="flex">
               <button type="submit" className="btn btn-primary flex-1">
-                Add Item
-              </button>
-              <button
-                className="btn btn-primary flex-1"
-                onClick={() => {
-                  document.getElementById("my_modal_1").close();
-                }}
-              >
-                Cancel
+                +
               </button>
             </div>
           </form>
         </div>
-      </dialog>
-    </>
+      </div>
+    </div>
   );
 }
