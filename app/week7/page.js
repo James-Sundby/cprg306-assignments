@@ -35,7 +35,7 @@ export default function Home() {
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
-        <div className="carousel max-w-fit">
+        <div className="carousel max-w-lg md:max-w-fit">
           <div className="carousel-item w-full lg:max-w-lg">
             <div className="carousel-content-wrapper">
               <NewItem onAddItem={handleAddItem} />
@@ -46,7 +46,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="carousel-item w-full lg:max-w-lg">
+          <div className="carousel-item max-w-lg md:max-w-fit">
             <div className="carousel-content-wrapper">
               <MealIdeas ingredient={selectedItemName} />
             </div>
