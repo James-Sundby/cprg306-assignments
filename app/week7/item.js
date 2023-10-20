@@ -1,7 +1,7 @@
 export default function Item({ name, quantity, category, onDelete, onSelect }) {
   return (
     <li onClick={() => onSelect(name)}>
-      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 hover:btn-active">
+      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 hover:btn-active cursor-pointer">
         <div className="card-body flex-row justify-between">
           <div>
             <h2 className="card-title text-2xl">{name}</h2>
