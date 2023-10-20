@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
@@ -11,6 +11,7 @@ import NavBar from "../nav-bar-2";
 export default function Home() {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
+  const [seenToolTip, setSeenToolTip] = useState(false);
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
@@ -29,12 +30,21 @@ export default function Home() {
     setSelectedItemName(cleanedName);
   };
 
+  useEffect(() => {
+    if (selectedItemName !== "" && !seenToolTip) {
+      setSeenToolTip(true);
+    }
+  }, [selectedItemName, seenToolTip]);
+
   return (
     <>
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
-        <div className="carousel w-screen">
+        <div
+          className={`carousel w-screen 
+          ${seenToolTip ? "shifted overflow-x-visible" : ""}`}
+        >
           <div className="carousel-item lg:max-wd-lg">
             <div className="carousel-content-wrapper w-screen lg:w-auto">
               <NewItem onAddItem={handleAddItem} />
