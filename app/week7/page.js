@@ -35,17 +35,21 @@ export default function Home() {
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
-        <div className="flex">
-          <div>
-            <NewItem onAddItem={handleAddItem} />
-            <ItemList
-              items={items}
-              onDelete={handleRemoveItem}
-              onItemSelect={handleItemSelect}
-            />
+        <div className="carousel">
+          <div className="carousel-item">
+            <div className="carousel-content-wrapper">
+              <NewItem onAddItem={handleAddItem} />
+              <ItemList
+                items={items}
+                onDelete={handleRemoveItem}
+                onItemSelect={handleItemSelect}
+              />
+            </div>
           </div>
-          <div>
-            <MealIdeas ingredient={selectedItemName} />
+          <div className="carousel-item">
+            <div className="carousel-content-wrapper">
+              <MealIdeas ingredient={selectedItemName} />
+            </div>
           </div>
         </div>
       </main>
