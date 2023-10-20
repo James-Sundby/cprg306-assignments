@@ -41,7 +41,7 @@ export default function NewItem({ onAddItem }) {
         </button>
       </div>
       <dialog id="my_modal_1" className="modal">
-        <div className=" bg-base-200 max-w-lg mx-2 mb-2 modal-box">
+        <div className=" bg-base-200 max-w-lg mx-2 mb-2 modal-box modal-top lg:modal-middle p-0">
           <form className="card-body" onSubmit={handleSubmit} method="dialog">
             <input
               placeholder="Item Name"
