@@ -34,10 +34,10 @@ export default function Home() {
     <>
       <NavBar />
       <main>
-        <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
-        <div className="carousel">
+        <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
+        <div className="carousel w-screen">
           <div className="carousel-item lg:max-wd-lg">
-            <div className="carousel-content-wrapper w-screen lg:w-auto mx-auto">
+            <div className="carousel-content-wrapper w-screen lg:w-auto">
               <NewItem onAddItem={handleAddItem} />
               <ItemList
                 items={items}
@@ -47,7 +47,7 @@ export default function Home() {
             </div>
           </div>
           <div className="carousel-item lg:max-wd-lg">
-            <div className="carousel-content-wrapper w-screen lg:w-auto mx-auto">
+            <div className="carousel-content-wrapper w-screen lg:w-auto">
               <MealIdeas ingredient={selectedItemName} />
             </div>
           </div>
