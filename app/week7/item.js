@@ -18,7 +18,6 @@ export default function Item({ name, quantity, category, onDelete, onSelect }) {
           clicked ? "shake" : ""
         }`}
       >
-        {" "}
         <div className="card-body flex-row justify-between">
           <div>
             <h2 className="card-title text-2xl">{name}</h2>

@@ -44,7 +44,7 @@ export default function MealIdeas({ ingredient }) {
                 </ul>
               </>
             ) : (
-              <p>{`No meals found using ${ingredient}`}</p>
+              <p>{`No meals found using ${ingredient}.`}</p>
             )}
           </>
         ) : (
