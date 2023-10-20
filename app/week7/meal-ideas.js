@@ -27,26 +27,28 @@ export default function MealIdeas({ ingredient }) {
   }, [ingredient]);
 
   return (
-    <div className="">
-      <p>Meal Ideas</p>
-      {ingredient ? (
-        <>
-          {meals ? (
-            <>
-              <p>{`Here are some meal ideas using ${ingredient}:`}</p>
-              <ul>
-                {meals.map((meal) => (
-                  <li key={meal.idMeal}>{meal.strMeal}</li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <p>{`No meals found using ${ingredient}`}</p>
-          )}
-        </>
-      ) : (
-        <p>Select an item to see meal ideas</p>
-      )}
+    <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
+      <div className="card-body">
+        <p className="card-title text-2xl">Meal Ideas</p>
+        {ingredient ? (
+          <>
+            {meals ? (
+              <>
+                <p>{`Here are some meal ideas using ${ingredient}:`}</p>
+                <ul>
+                  {meals.map((meal) => (
+                    <li key={meal.idMeal}>{meal.strMeal}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <p>{`No meals found using ${ingredient}`}</p>
+            )}
+          </>
+        ) : (
+          <p>Select an item to see meal ideas</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -23,9 +23,9 @@ export default function Home() {
   const handleItemSelect = (name) => {
     var cleanedName = name
       .split(",")[0]
-      .replace(/[\uD800-\uDFFF]./g, "")
-      .trim();
-    cleanedName = cleanedName.toLowerCase();
+      .replace(/[^a-zA-Z ]/g, "") // Remove non-alphabet characters
+      .trim()
+      .toLowerCase();
     setSelectedItemName(cleanedName);
   };
   console.log(selectedItemName);
