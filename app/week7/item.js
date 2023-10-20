@@ -1,7 +1,7 @@
-export default function Item({ name, quantity, category, onDelete }) {
+export default function Item({ name, quantity, category, onDelete, onSelect }) {
   return (
-    <li>
-      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
+    <li onClick={() => onSelect(name)}>
+      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 hover:bg-base-300 hover:border-accent">
         <div className="card-body flex-row justify-between">
           <div>
             <h2 className="card-title text-2xl">{name}</h2>

@@ -31,7 +31,7 @@ export default function NavBar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52"
           >
-            <li className="disabled">Assignments</li>
+            <li className="menu-title">Assignments</li>
             <li>
               <Link href="/week2">Week 2</Link>
             </li>
@@ -50,7 +50,7 @@ export default function NavBar() {
             <li>
               <Link href="/week7">Week 7</Link>
             </li>
-            <li className="disabled">Class Demos</li>
+            <li className="menu-title">Class Demos</li>
             <li>
               <Link href="/week5-class_demo">Week 5</Link>
             </li>

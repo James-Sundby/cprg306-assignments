@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Item from "./item.js";
 
-export default function ItemList({ items, onDelete }) {
+export default function ItemList({ items, onDelete, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
   const itemsData = [...items];
 
@@ -61,6 +61,7 @@ export default function ItemList({ items, onDelete }) {
               quantity={item.quantity}
               category={item.category}
               onDelete={onDelete}
+              onSelect={onItemSelect}
             />
           ))}
         </ul>
@@ -80,6 +81,7 @@ export default function ItemList({ items, onDelete }) {
                       quantity={item.quantity}
                       category={item.category}
                       onDelete={onDelete}
+                      onSelect={onItemSelect}
                     />
                   ))}
                 </ul>
