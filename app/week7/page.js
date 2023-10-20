@@ -36,7 +36,7 @@ export default function Home() {
       <main>
         <h1 className="text-4xl m-4 font-bold">Shopping List</h1>
         <div className="carousel">
-          <div className="carousel-item w-full md:max-w-md lg:max-w-lg">
+          <div className="carousel-item w-full md:w-1/2 lg:w-lg ">
             <div className="carousel-content-wrapper">
               <NewItem onAddItem={handleAddItem} />
               <ItemList
@@ -46,7 +46,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="carousel-item w-full md:max-w-md lg:max-w-lg">
+          <div className="carousel-item w-full md:w-1/2 lg:w-lg">
             <div className="carousel-content-wrapper">
               <MealIdeas ingredient={selectedItemName} />
             </div>
