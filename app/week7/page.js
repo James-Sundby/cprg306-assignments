@@ -11,6 +11,7 @@ import NavBar from "../nav-bar-2";
 export default function Home() {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
+  const [numberOfMeals, setNumberOfMeals] = useState(0);
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
@@ -29,6 +30,8 @@ export default function Home() {
     setSelectedItemName(cleanedName);
   };
 
+  console.log(numberOfMeals);
+
   return (
     <>
       <NavBar />
@@ -42,12 +45,16 @@ export default function Home() {
                 items={items}
                 onDelete={handleRemoveItem}
                 onItemSelect={handleItemSelect}
+                numberOfMeals={numberOfMeals}
               />
             </div>
           </div>
           <div className="carousel-item lg:max-wd-lg">
             <div className="carousel-content-wrapper w-screen lg:w-auto">
-              <MealIdeas ingredient={selectedItemName} />
+              <MealIdeas
+                ingredient={selectedItemName}
+                updateNumberOfMeals={setNumberOfMeals}
+              />
             </div>
           </div>
         </div>

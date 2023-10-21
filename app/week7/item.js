@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-export default function Item({ name, quantity, category, onDelete, onSelect }) {
+export default function Item({
+  name,
+  quantity,
+  category,
+  onDelete,
+  onSelect,
+  numberOfMeals,
+}) {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
@@ -14,8 +21,12 @@ export default function Item({ name, quantity, category, onDelete, onSelect }) {
   return (
     <li onClick={handleClick}>
       <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 hover:btn-active cursor-pointer ${
-          clicked ? "shake" : ""
+        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer ${
+          clicked
+            ? numberOfMeals > 0
+              ? "bounce" // Apply bounce animation if clicked and numberOfMeals > 0
+              : "shake" // Apply shift animation if only clicked
+            : "" // No animation if not clicked
         }`}
       >
         <div className="card-body flex-row justify-between">

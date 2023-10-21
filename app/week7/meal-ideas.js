@@ -1,13 +1,12 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
-export default function MealIdeas({ ingredient }) {
+export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   const [meals, setMeals] = useState([]);
 
   async function fetchMealIdeas() {
     if (!ingredient) {
       setMeals([]);
+      updateNumberOfMeals(0);
       return;
     }
     try {
@@ -16,18 +15,21 @@ export default function MealIdeas({ ingredient }) {
       );
       const data = await response.json();
       setMeals(data.meals);
+      if (data.meals && data.meals.length > 0) {
+        updateNumberOfMeals(data.meals.length);
+      } else {
+        updateNumberOfMeals(0);
+      }
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setMeals([]);
+      updateNumberOfMeals(0);
     }
   }
 
   useEffect(() => {
     fetchMealIdeas();
-  }, [ingredient]);
-
-  console.log(`"meals: "${meals}`);
-
+  }, [ingredient, updateNumberOfMeals]);
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
       <div className="card-body">

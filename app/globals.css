@@ -26,15 +26,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.shake {
-  animation: shake 0.1s;
-
-  /* When the animation is finished, start again */
-  /* animation-iteration-count: infinite; */
-  animation-iteration-count: 2;
+@media (max-width: 640px) {
+  .shake {
+    animation: shaking 0.2s;
+    animation-iteration-count: 3;
+  }
 }
 
-@keyframes shake {
+@keyframes shaking {
   0% {
     transform: translate(0px);
   }
@@ -53,20 +52,20 @@ body {
 }
 
 @media (max-width: 640px) {
-  .shifted {
-    animation: shiftCarousel 3s;
-    animation-iteration-count: 1;
+  .bounce {
+    animation: bouncing 1s;
+    animation-iteration-count: 2;
   }
 }
 
-@keyframes shiftCarousel {
+@keyframes bouncing {
   0% {
-    transform: translate(0%);
+    transform: translate(0);
   }
   50% {
-    transform: translate(-100%);
+    transform: translate(12%);
   }
   100% {
-    transform: translate(0%);
+    transform: translate(0);
   }
 }
