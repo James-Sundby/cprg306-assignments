@@ -30,8 +30,6 @@ export default function Home() {
     setSelectedItemName(cleanedName);
   };
 
-  console.log(numberOfMeals);
-
   return (
     <>
       <NavBar />

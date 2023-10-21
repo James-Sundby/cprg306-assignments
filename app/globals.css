@@ -54,7 +54,7 @@ body {
 @media (max-width: 640px) {
   .bounce {
     animation: bouncing 1s;
-    animation-iteration-count: 2;
+    animation-iteration-count: 1;
   }
 }
 
@@ -62,8 +62,14 @@ body {
   0% {
     transform: translate(0);
   }
+  25% {
+    transform: translate(8%);
+  }
   50% {
-    transform: translate(12%);
+    transform: translate(0);
+  }
+  75% {
+    transform: translate(8%);
   }
   100% {
     transform: translate(0);

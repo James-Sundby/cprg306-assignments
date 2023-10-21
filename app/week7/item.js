@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Item({
   name,
@@ -9,25 +9,37 @@ export default function Item({
   numberOfMeals,
 }) {
   const [clicked, setClicked] = useState(false);
+  const [animationClass, setAnimationClass] = useState("");
+
+  useEffect(() => {
+    if (clicked) {
+      if (numberOfMeals > 0) {
+        setAnimationClass("bounce");
+        const timeout = setTimeout(() => {
+          setClicked(false);
+          setAnimationClass("");
+        }, 1000);
+        return () => clearTimeout(timeout); // Clear timeout if the component unmounts
+      } else {
+        setAnimationClass("shake");
+        const timeout = setTimeout(() => {
+          setClicked(false);
+          setAnimationClass("");
+        }, 600);
+        return () => clearTimeout(timeout); // Clear timeout if the component unmounts
+      }
+    }
+  }, [clicked, numberOfMeals]);
 
   const handleClick = () => {
     setClicked(true);
     onSelect(name);
-    setTimeout(() => {
-      setClicked(false);
-    }, 1000);
   };
 
   return (
     <li onClick={handleClick}>
       <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer ${
-          clicked
-            ? numberOfMeals > 0
-              ? "bounce" // Apply bounce animation if clicked and numberOfMeals > 0
-              : "shake" // Apply shift animation if only clicked
-            : "" // No animation if not clicked
-        }`}
+        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer ${animationClass}`}
       >
         <div className="card-body flex-row justify-between">
           <div>
