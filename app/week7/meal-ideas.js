@@ -6,8 +6,8 @@ export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
 
   async function fetchMealIdeas() {
-    setMeals([]);
     if (!ingredient) {
+      setMeals([]);
       return;
     }
     try {
@@ -25,6 +25,8 @@ export default function MealIdeas({ ingredient }) {
   useEffect(() => {
     fetchMealIdeas();
   }, [ingredient]);
+
+  console.log(`"meals: "${meals}`);
 
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
