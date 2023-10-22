@@ -57,6 +57,9 @@ export default function NavBar() {
             <li>
               <Link href="/week6-class_demo">Week 6</Link>
             </li>
+            <li>
+              <Link href="/week7-class_demo">Week 7</Link>
+            </li>
           </ul>
         </div>
 

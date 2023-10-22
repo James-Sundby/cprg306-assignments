@@ -17,23 +17,20 @@ export default function Item({
   };
 
   useEffect(() => {
-    if (clicked) {
-      if (numberOfMeals > 0) {
-        setAnimationClass("bounce");
-        const timeout = setTimeout(() => {
-          setClicked(false);
-          setAnimationClass("");
-        }, 1000);
-        return () => clearTimeout(timeout); // Clear timeout if the component unmounts
-      } else {
-        setAnimationClass("shake");
-        const timeout = setTimeout(() => {
-          setClicked(false);
-          setAnimationClass("");
-        }, 600);
-        return () => clearTimeout(timeout); // Clear timeout if the component unmounts
-      }
-    }
+    if (!clicked) return;
+
+    let animation = numberOfMeals > 0 ? "bounce" : "shake";
+    setAnimationClass(animation);
+
+    const timeout = setTimeout(
+      () => {
+        setClicked(false);
+        setAnimationClass("");
+      },
+      numberOfMeals > 0 ? 1000 : 600
+    );
+
+    return () => clearTimeout(timeout);
   }, [clicked, numberOfMeals]);
 
   return (

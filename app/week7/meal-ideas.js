@@ -14,12 +14,15 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
         `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
       );
       const data = await response.json();
-      setMeals(data.meals);
-      if (data.meals && data.meals.length > 0) {
-        updateNumberOfMeals(data.meals.length);
-      } else {
+
+      if (!data.meals || data.meals.length === 0) {
+        setMeals([]);
         updateNumberOfMeals(0);
+        return;
       }
+
+      setMeals(data.meals);
+      updateNumberOfMeals(data.meals.length);
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setMeals([]);
