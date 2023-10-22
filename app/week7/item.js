@@ -36,7 +36,7 @@ export default function Item({
   return (
     <li onClick={handleClick}>
       <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer ${animationClass}`}
+        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active ${animationClass}`}
       >
         <div className="card-body flex-row justify-between">
           <div>
