@@ -11,6 +11,11 @@ export default function Item({
   const [clicked, setClicked] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
 
+  const handleClick = () => {
+    setClicked(true);
+    onSelect(name);
+  };
+
   useEffect(() => {
     if (clicked) {
       if (numberOfMeals > 0) {
@@ -30,11 +35,6 @@ export default function Item({
       }
     }
   }, [clicked, numberOfMeals]);
-
-  const handleClick = () => {
-    setClicked(true);
-    onSelect(name);
-  };
 
   return (
     <li onClick={handleClick}>
