@@ -39,9 +39,12 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
         <p className="card-title text-2xl">Meal Ideas</p>
         {ingredient ? (
           <>
-            {meals ? (
+            {meals.length > 0 ? (
               <>
-                <p>{`Here are some meal ideas using ${ingredient}:`}</p>
+                <p>
+                  Here are some meal ideas using{" "}
+                  <span className="font-bold text-primary">{ingredient}</span>:
+                </p>
                 <ul>
                   {meals.map((meal) => (
                     <li className="hover:btn-active" key={meal.idMeal}>
@@ -51,7 +54,10 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
                 </ul>
               </>
             ) : (
-              <p>{`No meals found using ${ingredient}.`}</p>
+              <p>
+                No meals found using{" "}
+                <span className="font-bold text-primary">{ingredient}</span>.
+              </p>
             )}
           </>
         ) : (
