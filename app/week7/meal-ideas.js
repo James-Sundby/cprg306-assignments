@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   const [meals, setMeals] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   async function fetchMealIdeas() {
     if (!ingredient) {
@@ -30,6 +31,28 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
     }
   }
 
+  async function fetchIngredients(mealID) {
+    setIngredients([]);
+    try {
+      const response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
+      );
+      const data = await response.json();
+      const ingredientsList = [];
+      for (let i = 1; i <= 20; i++) {
+        const ingredient = data.meals[0][`strIngredient${i}`];
+        const measure = data.meals[0][`strMeasure${i}`];
+        if (ingredient && measure) {
+          ingredientsList.push({ ingredient, measure });
+        }
+      }
+      setIngredients(ingredientsList);
+    } catch (error) {
+      console.error("Error fetching meal ideas:", error);
+      setIngredients([]);
+    }
+  }
+
   useEffect(() => {
     fetchMealIdeas();
   }, [ingredient, updateNumberOfMeals]);
@@ -50,16 +73,21 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
                     <div
                       key={meal.idMeal}
                       className="collapse collapse-arrow bg-base-100 hover:btn-active mb-2"
+                      onClick={() => fetchIngredients(meal.idMeal)}
                     >
                       <input type="radio" name="my-accordion" />
                       <div className="collapse-title text-xl font-medium">
                         {meal.strMeal}
                       </div>
                       <div className="collapse-content">
-                        <p>
-                          SAMPLE TEXT: This is where the ingredients for a
-                          recipe should go
-                        </p>
+                        <p className="font-bold mb-2">Ingredients needed:</p>
+                        <ul>
+                          {ingredients.map((ingredient, index) => (
+                            <li key={index}>
+                              {ingredient.ingredient} {ingredient.measure}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   ))}
