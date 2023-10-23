@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [fetchedMeals, setFetchedMeals] = useState([]);
 
   async function fetchMealIdeas() {
     if (!ingredient) {
@@ -32,6 +33,10 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   }
 
   async function fetchIngredients(mealID) {
+    if (fetchedMeals.includes(mealID)) {
+      return;
+    }
+
     setIngredients([]);
     try {
       const response = await fetch(
@@ -47,6 +52,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
         }
       }
       setIngredients(ingredientsList);
+      setFetchedMeals([...fetchedMeals, mealID]);
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setIngredients([]);
@@ -56,6 +62,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   useEffect(() => {
     fetchMealIdeas();
   }, [ingredient, updateNumberOfMeals]);
+
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
       <div className="card-body">
