@@ -47,9 +47,21 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
                 </p>
                 <ul>
                   {meals.map((meal) => (
-                    <li className="hover:btn-active" key={meal.idMeal}>
-                      {meal.strMeal}
-                    </li>
+                    <div
+                      key={meal.idMeal}
+                      className="collapse collapse-arrow bg-base-100 hover:btn-active mb-2"
+                    >
+                      <input type="radio" name="my-accordion" />
+                      <div className="collapse-title text-xl font-medium">
+                        {meal.strMeal}
+                      </div>
+                      <div className="collapse-content">
+                        <p>
+                          SAMPLE TEXT: This is where the ingredients for a
+                          recipe should go
+                        </p>
+                      </div>
+                    </div>
                   ))}
                 </ul>
               </>
