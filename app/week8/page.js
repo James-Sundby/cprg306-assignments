@@ -2,6 +2,7 @@
 
 import { useUserAuth } from "./_utils/auth-context";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
@@ -31,7 +32,8 @@ export default function Home() {
             <img src={user.photoURL} alt="user avatar" className="w-8 h-8" />
             <button
               onClick={handleSignOut}
-              className="text-lg m-2 hover:underline"
+              className="btn btn-sm btn-primary"
+              data-set-theme="dracula"
             >
               Sign Out
             </button>
@@ -39,7 +41,8 @@ export default function Home() {
         ) : (
           <button
             onClick={handleSignIn}
-            className="text-lg m-2 hover:underline"
+            className="btn btn-sm btn-primary"
+            data-set-theme="dracula"
           >
             Sign In
           </button>
