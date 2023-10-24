@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [fetchedMeals, setFetchedMeals] = useState([]);
+  const [fetchedMeal, setFetchedMeal] = useState([]);
 
   async function fetchMealIdeas() {
     if (!ingredient) {
       setMeals([]);
       updateNumberOfMeals(0);
+      setFetchedMeal([]);
       return;
     }
     try {
@@ -20,6 +21,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
       if (!data.meals || data.meals.length === 0) {
         setMeals([]);
         updateNumberOfMeals(0);
+        setFetchedMeal([]);
         return;
       }
 
@@ -28,12 +30,13 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setMeals([]);
+      setFetchedMeal([]);
       updateNumberOfMeals(0);
     }
   }
 
   async function fetchIngredients(mealID) {
-    if (fetchedMeals.includes(mealID)) {
+    if (fetchedMeal.includes(mealID)) {
       return;
     }
 
@@ -52,7 +55,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
         }
       }
       setIngredients(ingredientsList);
-      setFetchedMeals([...fetchedMeals, mealID]);
+      setFetchedMeal([mealID]);
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setIngredients([]);
