@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
@@ -11,7 +11,7 @@ import NavBar from "../nav-bar-2";
 export default function Home() {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
-  const [shifted, setShifted] = useState(false);
+  const [numberOfMeals, setNumberOfMeals] = useState(0);
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const handleItemSelect = (name) => {
-    let cleanedName = name
+    var cleanedName = name
       .split(",")[0]
       .replace(/[^a-zA-Z ]/g, "") // Remove non-alphabet characters
       .trim()
@@ -30,36 +30,12 @@ export default function Home() {
     setSelectedItemName(cleanedName);
   };
 
-  useEffect(() => {
-    if (selectedItemName && !shifted) {
-      setShifted(true);
-    }
-  }, [selectedItemName, shifted]);
-
-  useEffect(() => {
-    const handleOverflowChange = () => {
-      const body = document.getElementById("carouselMAIN");
-      body.style.overflowX = shifted ? "visible" : "scroll";
-    };
-
-    handleOverflowChange();
-
-    // Cleanup function to reset overflow property
-    return () => {
-      const body = document.getElementById("carouselMAIN");
-      body.style.overflowX = "scroll";
-    };
-  }, [shifted]);
-
   return (
     <>
       <NavBar />
       <main>
         <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
-        <div
-          id="carouselMAIN"
-          className={`carousel w-screen ${shifted ? "shifted" : ""}`}
-        >
+        <div className="carousel w-screen">
           <div className="carousel-item lg:max-wd-lg">
             <div className="carousel-content-wrapper w-screen lg:w-auto">
               <NewItem onAddItem={handleAddItem} />
@@ -67,12 +43,16 @@ export default function Home() {
                 items={items}
                 onDelete={handleRemoveItem}
                 onItemSelect={handleItemSelect}
+                numberOfMeals={numberOfMeals}
               />
             </div>
           </div>
           <div className="carousel-item lg:max-wd-lg">
             <div className="carousel-content-wrapper w-screen lg:w-auto">
-              <MealIdeas ingredient={selectedItemName} />
+              <MealIdeas
+                ingredient={selectedItemName}
+                updateNumberOfMeals={setNumberOfMeals}
+              />
             </div>
           </div>
         </div>
