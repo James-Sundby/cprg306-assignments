@@ -22,6 +22,9 @@ export default function Home() {
       console.log(error);
     }
   }
+
+  console.log(user);
+
   return (
     <main>
       <NavBar />

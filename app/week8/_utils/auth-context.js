@@ -30,6 +30,9 @@ export const AuthContextProvider = ({ children }) => {
     return () => unsubscribe();
   }, [user]);
 
+  // may be able to take user out of useEffect dependencies as onAuthStateChanged needs to run on the page
+  // but does not depend on whether user is updated
+
   return (
     <AuthContext.Provider value={{ user, gitHubSignIn, firebaseSignOut }}>
       {children}
