@@ -86,9 +86,15 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
                       onClick={() => fetchIngredients(meal.idMeal)}
                     >
                       <input type="radio" name="my-accordion" />
-                      <div className="collapse-title text-xl font-medium">
+                      <div className="collapse-title text-xl font-medium flex gap-4">
+                        <img
+                          className="w-12 mask mask-squircle"
+                          src={meal.strMealThumb}
+                          alt={meal.strMeal}
+                        />
                         {meal.strMeal}
                       </div>
+
                       <div className="collapse-content">
                         <p className="font-bold mb-2">Ingredients needed:</p>
                         <ul>
