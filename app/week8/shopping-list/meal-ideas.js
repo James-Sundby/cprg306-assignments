@@ -8,7 +8,6 @@ export default function MealIdeas({ ingredient }) {
   async function fetchMealIdeas() {
     if (!ingredient) {
       setMeals([]);
-
       setFetchedMeal([]);
       return;
     }
@@ -20,7 +19,6 @@ export default function MealIdeas({ ingredient }) {
 
       if (!data.meals || data.meals.length === 0) {
         setMeals([]);
-
         setFetchedMeal([]);
         return;
       }
@@ -92,7 +90,6 @@ export default function MealIdeas({ ingredient }) {
                         />
                         {meal.strMeal}
                       </div>
-
                       <div className="collapse-content">
                         <p className="font-bold mb-2">Ingredients needed:</p>
                         <ul>
