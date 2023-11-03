@@ -8,19 +8,19 @@ import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 import Link from "next/link";
 
-import NavBar from "../../nav-bar-2";
+import NavBar from "../../components/nav-bar-2";
 
 export default function Home() {
   const { user } = useUserAuth();
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
-  const [numberOfMeals, setNumberOfMeals] = useState(0);
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
   };
 
-  const handleRemoveItem = (name) => {
+  const handleRemoveItem = (name, event) => {
+    event.stopPropagation();
     setItems(items.filter((i) => i.name !== name));
   };
 
@@ -47,16 +47,12 @@ export default function Home() {
                   items={items}
                   onDelete={handleRemoveItem}
                   onItemSelect={handleItemSelect}
-                  numberOfMeals={numberOfMeals}
                 />
               </div>
             </div>
             <div className="carousel-item lg:max-wd-lg">
               <div className="carousel-content-wrapper w-screen lg:w-auto">
-                <MealIdeas
-                  ingredient={selectedItemName}
-                  updateNumberOfMeals={setNumberOfMeals}
-                />
+                <MealIdeas ingredient={selectedItemName} />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import ItemList from "./item-list";
-import NavBar from "../nav-bar";
+import NavBar from "../components/nav-bar";
 
 export default function Home() {
   return (

@@ -1,42 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function Item({
-  name,
-  quantity,
-  category,
-  onDelete,
-  onSelect,
-  numberOfMeals,
-}) {
-  const [clicked, setClicked] = useState(false);
-  const [animationClass, setAnimationClass] = useState("");
-
+export default function Item({ name, quantity, category, onDelete, onSelect }) {
   const handleClick = () => {
-    setClicked(true);
     onSelect(name);
   };
-
-  useEffect(() => {
-    if (!clicked) return;
-
-    let animation = numberOfMeals > 0 ? "bounce" : "shake";
-    setAnimationClass(animation);
-
-    const timeout = setTimeout(
-      () => {
-        setClicked(false);
-        setAnimationClass("");
-      },
-      numberOfMeals > 0 ? 1000 : 600
-    );
-
-    return () => clearTimeout(timeout);
-  }, [clicked, numberOfMeals]);
 
   return (
     <li onClick={handleClick}>
       <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active ${animationClass}`}
+        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active`}
       >
         <div className="card-body flex-row justify-between">
           <div>
@@ -50,7 +22,10 @@ export default function Item({
             </p>
           </div>
           <div className="card-actions">
-            <button onClick={() => onDelete(name)} className="btn btn-primary">
+            <button
+              onClick={(e) => onDelete(name, e)}
+              className="btn btn-primary"
+            >
               Remove
             </button>
           </div>

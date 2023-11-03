@@ -2,7 +2,7 @@
 
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
-import NavBar from "../nav-bar-2";
+import NavBar from "../components/nav-bar-2";
 
 export default function Home() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();

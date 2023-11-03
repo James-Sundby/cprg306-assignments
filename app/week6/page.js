@@ -5,7 +5,7 @@ import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 
-import NavBar from "../nav-bar-2";
+import NavBar from "../components/nav-bar-2";
 
 export default function Home() {
   const [items, setItems] = useState(itemsData);

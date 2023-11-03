@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
+export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [fetchedMeal, setFetchedMeal] = useState([]);
@@ -8,7 +8,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
   async function fetchMealIdeas() {
     if (!ingredient) {
       setMeals([]);
-      updateNumberOfMeals(0);
+
       setFetchedMeal([]);
       return;
     }
@@ -20,18 +20,16 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
 
       if (!data.meals || data.meals.length === 0) {
         setMeals([]);
-        updateNumberOfMeals(0);
+
         setFetchedMeal([]);
         return;
       }
 
       setMeals(data.meals);
-      updateNumberOfMeals(data.meals.length);
     } catch (error) {
       console.error("Error fetching meal ideas:", error);
       setMeals([]);
       setFetchedMeal([]);
-      updateNumberOfMeals(0);
     }
   }
 
@@ -64,7 +62,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
 
   useEffect(() => {
     fetchMealIdeas();
-  }, [ingredient, updateNumberOfMeals]);
+  }, [ingredient]);
 
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
@@ -85,7 +83,7 @@ export default function MealIdeas({ ingredient, updateNumberOfMeals }) {
                       className="collapse collapse-arrow bg-base-100 hover:btn-active mb-2"
                       onClick={() => fetchIngredients(meal.idMeal)}
                     >
-                      <input type="radio" name="my-accordion" />
+                      <input type="radio" name="meals" />
                       <div className="collapse-title text-xl font-medium flex gap-4">
                         <img
                           className="w-12 mask mask-squircle"

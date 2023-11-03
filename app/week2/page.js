@@ -1,5 +1,5 @@
-import StudentInfo from "../student-info";
-import NavBar from "../nav-bar";
+import StudentInfo from "../components/student-info";
+import NavBar from "../components/nav-bar";
 
 export default function Home() {
   return (
