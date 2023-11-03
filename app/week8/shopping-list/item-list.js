@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Item from "./item.js";
 
-export default function ItemList({
-  items,
-  onDelete,
-  onItemSelect,
-  numberOfMeals,
-}) {
+export default function ItemList({ items, onDelete, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
   const itemsData = [...items];
 
@@ -67,7 +62,6 @@ export default function ItemList({
               category={item.category}
               onDelete={onDelete}
               onSelect={onItemSelect}
-              numberOfMeals={numberOfMeals}
             />
           ))}
         </ul>
@@ -88,7 +82,6 @@ export default function ItemList({
                       category={item.category}
                       onDelete={onDelete}
                       onSelect={onItemSelect}
-                      numberOfMeals={numberOfMeals}
                     />
                   ))}
                 </ul>
