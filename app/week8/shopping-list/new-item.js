@@ -10,7 +10,7 @@ export default function NewItem({ onAddItem }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newItem = { name, quantity, category };
+    const newItem = { id: `${name}-${Date.now()}`, name, quantity, category };
     onAddItem(newItem);
 
     setName("");
