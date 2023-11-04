@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [fetchedMeal, setFetchedMeal] = useState([]);
 
-  async function fetchMealIdeas() {
+  const fetchMealIdeas = useCallback(async () => {
     if (!ingredient) {
       setMeals([]);
       setFetchedMeal([]);
@@ -29,7 +29,7 @@ export default function MealIdeas({ ingredient }) {
       setMeals([]);
       setFetchedMeal([]);
     }
-  }
+  }, [ingredient]);
 
   async function fetchIngredients(mealID) {
     if (fetchedMeal.includes(mealID)) {
@@ -60,7 +60,7 @@ export default function MealIdeas({ ingredient }) {
 
   useEffect(() => {
     fetchMealIdeas();
-  }, [ingredient]);
+  }, [ingredient, fetchMealIdeas]);
 
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">

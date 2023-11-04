@@ -30,6 +30,7 @@ export default function Item({
           </div>
           <div className="card-actions">
             <button
+              aria-label="Remove"
               onClick={(e) => onDelete(id, e)}
               className="btn btn-primary"
             >

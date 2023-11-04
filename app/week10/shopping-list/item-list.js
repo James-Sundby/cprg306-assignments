@@ -32,7 +32,7 @@ export default function ItemList({ items, onDelete, onItemSelect }) {
             className="join-item btn flex-1"
             type="radio"
             name="sort-options"
-            aria-label="Name"
+            aria-label="Sort by Name"
             onClick={() => setSortBy("name")}
             defaultChecked
           />
@@ -40,14 +40,14 @@ export default function ItemList({ items, onDelete, onItemSelect }) {
             className="join-item btn flex-1"
             type="radio"
             name="sort-options"
-            aria-label="Category"
+            aria-label="Sort by Category"
             onClick={() => setSortBy("category")}
           />
           <input
             className="join-item btn flex-1"
             type="radio"
             name="sort-options"
-            aria-label="Grouped Categories"
+            aria-label="Sort by Grouped Categories"
             onClick={() => setSortBy("grouped")}
           />
         </div>

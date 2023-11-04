@@ -23,8 +23,6 @@ export default function Home() {
     }
   }
 
-  console.log(user);
-
   return (
     <main>
       <NavBar />
@@ -48,6 +46,7 @@ export default function Home() {
               </div>
               <div className="card-actions justify-center">
                 <button
+                  aria-label="Sign Out"
                   onClick={handleSignOut}
                   className="btn btn-primary btn-wide"
                 >
@@ -58,8 +57,9 @@ export default function Home() {
           </div>
           <Link
             className="btn btn-primary flex max-w-lg mx-2 mb-2"
-            data-set-theme="dracula"
+            // data-set-theme="dracula"
             href="/week10/shopping-list"
+            aria-label="Continue to my shopping list"
           >
             Continue to my shopping list
           </Link>
@@ -73,6 +73,7 @@ export default function Home() {
             </div>
             <div className="card-actions justify-center">
               <button
+                aria-label="Sign In with GitHub"
                 onClick={handleSignIn}
                 className="btn btn-primary btn-wide"
               >
