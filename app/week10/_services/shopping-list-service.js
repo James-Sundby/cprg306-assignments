@@ -1,0 +1,39 @@
+import { db } from "../_utils/firebase";
+import { collection, getDocs, addDoc, query } from "firebase/firestore";
+
+export const getShoppingList = async (userId) => {
+  try {
+    const itemsCollection = collection(db, "users", userId, "items");
+    const querySnapshot = await getDocs(itemsCollection);
+
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push({
+        id: doc.id,
+        category: doc.data().category,
+        name: doc.data().name,
+        quantity: doc.data().quantity,
+      });
+    });
+
+    return items;
+  } catch (error) {
+    console.error("Error retrieving shopping list from database.", error);
+  }
+};
+
+export const addItem = async (userId, item) => {
+  try {
+    if (!item.name || !item.quantity) {
+      throw new Error(
+        "The item object is missing required fields (name or quantity)."
+      );
+    }
+
+    const itemsCollection = collection(db, "users", userId, "items");
+    const docRef = await addDoc(itemsCollection, item);
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding item to database.", error);
+  }
+};
