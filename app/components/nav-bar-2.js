@@ -53,6 +53,9 @@ export default function NavBar() {
             <li>
               <Link href="/week8">Week 8</Link>
             </li>
+            <li>
+              <Link href="/week10">Week 10</Link>
+            </li>
             <li className="menu-title">Class Demos</li>
             <li>
               <Link href="/week5-class_demo">Week 5</Link>
