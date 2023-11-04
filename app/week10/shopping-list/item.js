@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-export default function Item({ name, quantity, category, onDelete, onSelect }) {
+export default function Item({
+  id,
+  name,
+  quantity,
+  category,
+  onDelete,
+  onSelect,
+}) {
   const handleClick = () => {
     onSelect(name);
   };
@@ -23,7 +30,7 @@ export default function Item({ name, quantity, category, onDelete, onSelect }) {
           </div>
           <div className="card-actions">
             <button
-              onClick={(e) => onDelete(name, e)}
+              onClick={(e) => onDelete(id, e)}
               className="btn btn-primary"
             >
               Remove

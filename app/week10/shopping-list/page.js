@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
-import { getShoppingList, addItem } from "../_services/shopping-list-service";
+import {
+  getShoppingList,
+  addItem,
+  removeItem,
+} from "../_services/shopping-list-service";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
@@ -25,9 +29,14 @@ export default function Home() {
     }
   };
 
-  const handleRemoveItem = (name, event) => {
+  const handleRemoveItem = async (itemId, event) => {
     event.stopPropagation();
-    setItems(items.filter((i) => i.name !== name));
+    try {
+      await removeItem(user.uid, itemId);
+      setItems(items.filter((item) => item.id !== itemId));
+    } catch (error) {
+      console.error("Error removing item: ", error);
+    }
   };
 
   const handleItemSelect = (name) => {
