@@ -58,7 +58,9 @@ export default function Home() {
   }
 
   useEffect(() => {
-    loadItems();
+    if (user) {
+      loadItems();
+    }
   }, [user]);
 
   return (
