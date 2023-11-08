@@ -7,9 +7,9 @@ import {
   addItem,
   removeItem,
 } from "../_services/shopping-list-service";
-import ItemList from "./item-list";
-import NewItem from "./new-item";
-import MealIdeas from "./meal-ideas";
+import ItemList from "../components/item-list";
+import NewItem from "../components/new-item";
+import MealIdeas from "../components/meal-ideas";
 import Link from "next/link";
 
 import NavBar from "../../components/nav-bar-2";
@@ -95,7 +95,7 @@ export default function Home() {
               <p>You must be logged in to access this page</p>
             </div>
             <div className="card-actions justify-center">
-              <Link className="btn btn-primary btn-wide" href="/week8">
+              <Link className="btn btn-primary btn-wide" href="/week10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="1em"
