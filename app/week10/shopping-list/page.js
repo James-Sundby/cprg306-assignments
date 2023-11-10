@@ -75,7 +75,7 @@ export default function Home() {
             Shopping List
           </h1>
           <section className="carousel w-screen">
-            <div className="carousel-item md:w-1/2 lg:max-w-lg">
+            <div id="list" className="carousel-item md:w-1/2 lg:max-w-lg">
               <div className="carousel-content-wrapper w-screen ">
                 <NewItem onAddItem={handleAddItem} />
                 <ItemList
@@ -85,7 +85,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="carousel-item md:w-1/2 lg:max-w-lg">
+            <div id="meals" className="carousel-item md:w-1/2 lg:max-w-lg">
               <div className="carousel-content-wrapper w-screen ">
                 <MealIdeas ingredient={selectedItemName} />
               </div>
