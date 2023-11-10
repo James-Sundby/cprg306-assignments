@@ -66,9 +66,12 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
+
       {user ? (
         <main>
+          <h1 className="text-4xl font-bold mx-2 mb-4 max-w-lg">
+            Shopping List
+          </h1>
           <div className="carousel w-screen">
             <div className="carousel-item lg:max-wd-lg">
               <div className="carousel-content-wrapper w-screen lg:w-auto">
@@ -81,7 +84,7 @@ export default function Home() {
               </div>
             </div>
             <div className="carousel-item lg:max-wd-lg">
-              <div className="carousel-content-wrapper w-screen lg:w-auto">
+              <div className="carousel-content-wrapper w-screen  lg:w-auto">
                 <MealIdeas ingredient={selectedItemName} />
               </div>
             </div>

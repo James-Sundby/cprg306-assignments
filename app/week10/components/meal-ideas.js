@@ -1,66 +1,29 @@
 import { useState, useEffect } from "react";
+import { fetchMealIdeas, fetchIngredients } from "../_services/meal-services";
 
 export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [fetchedMeal, setFetchedMeal] = useState([]);
 
-  async function fetchMealIdeas() {
-    if (!ingredient) {
-      setMeals([]);
-      setFetchedMeal([]);
-      return;
+  useEffect(() => {
+    async function fetchData() {
+      const mealIdeas = await fetchMealIdeas(ingredient);
+      setMeals(mealIdeas);
     }
-    try {
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
-      );
-      const data = await response.json();
 
-      if (!data.meals || data.meals.length === 0) {
-        setMeals([]);
-        setFetchedMeal([]);
-        return;
-      }
+    fetchData();
+  }, [ingredient]);
 
-      setMeals(data.meals);
-    } catch (error) {
-      console.error("Error fetching meal ideas:", error);
-      setMeals([]);
-      setFetchedMeal([]);
-    }
-  }
-
-  async function fetchIngredients(mealID) {
+  const handleMealClick = async (mealID) => {
     if (fetchedMeal.includes(mealID)) {
       return;
     }
 
-    setIngredients([]);
-    try {
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
-      );
-      const data = await response.json();
-      const ingredientsList = [];
-      for (let i = 1; i <= 20; i++) {
-        const ingredient = data.meals[0][`strIngredient${i}`];
-        const measure = data.meals[0][`strMeasure${i}`];
-        if (ingredient && measure) {
-          ingredientsList.push({ ingredient, measure });
-        }
-      }
-      setIngredients(ingredientsList);
-      setFetchedMeal([mealID]);
-    } catch (error) {
-      console.error("Error fetching meal ideas:", error);
-      setIngredients([]);
-    }
-  }
-
-  useEffect(() => {
-    fetchMealIdeas();
-  }, [ingredient]);
+    const ingredientsList = await fetchIngredients(mealID);
+    setIngredients(ingredientsList);
+    setFetchedMeal([mealID]);
+  };
 
   return (
     <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
@@ -79,7 +42,7 @@ export default function MealIdeas({ ingredient }) {
                     <div
                       key={meal.idMeal}
                       className="collapse collapse-arrow bg-base-100 hover:btn-active mb-2"
-                      onClick={() => fetchIngredients(meal.idMeal)}
+                      onClick={() => handleMealClick(meal.idMeal)}
                     >
                       <input type="radio" name="meals" />
                       <div className="collapse-title text-xl font-medium flex gap-4">

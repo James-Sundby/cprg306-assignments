@@ -34,7 +34,7 @@ export default function NewItem({ onAddItem }) {
     <div className="max-w-lg mx-2 mb-2">
       <div className="collapse collapse-arrow">
         <input type="checkbox" className="peer" />
-        <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary">
+        <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary flex items-center">
           Add Item to List
         </div>
         <div className="bg-base-200 collapse-content">
@@ -68,6 +68,7 @@ export default function NewItem({ onAddItem }) {
                 <option value="dairy">Dairy</option>
                 <option value="bakery">Bakery</option>
                 <option value="meat">Meat</option>
+                <option value="deli">Deli</option>
                 <option value="frozen foods">Frozen Foods</option>
                 <option value="canned goods">Canned Goods</option>
                 <option value="dry goods">Dry Goods</option>
