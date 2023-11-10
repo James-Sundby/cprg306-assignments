@@ -5,6 +5,7 @@ export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [fetchedMeal, setFetchedMeal] = useState([]);
+  const [collapsed, setCollapsed] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -17,9 +18,11 @@ export default function MealIdeas({ ingredient }) {
 
   const handleMealClick = async (mealID) => {
     if (fetchedMeal.includes(mealID)) {
+      setCollapsed(collapsed === "" ? "collapse-close" : "");
       return;
     }
 
+    setCollapsed("");
     const ingredientsList = await fetchIngredients(mealID);
     setIngredients(ingredientsList);
     setFetchedMeal([mealID]);
@@ -41,13 +44,13 @@ export default function MealIdeas({ ingredient }) {
                   {meals.map((meal) => (
                     <div
                       key={meal.idMeal}
-                      className="collapse collapse-arrow bg-base-100 hover:btn-active mb-2"
+                      className={`collapse collapse-arrow bg-base-100 hover:btn-active mb-2 ${collapsed}`}
                       onClick={() => handleMealClick(meal.idMeal)}
                     >
                       <input type="radio" name="meals" />
                       <div className="collapse-title text-xl font-medium flex gap-4">
                         <img
-                          className="w-12 mask mask-squircle"
+                          className="w-12 mask mask-squircle max-h-12"
                           src={meal.strMealThumb}
                           alt={meal.strMeal}
                         />
