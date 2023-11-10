@@ -17,22 +17,29 @@ export default function Item({
       >
         <div className="card-body flex-row justify-between">
           <div>
-            <h2 className="card-title text-2xl">{name}</h2>
-            <p>
+            <header className="card-title text-2xl">{name}</header>
+            <article>
               Pick up <span className="font-bold text-primary">{quantity}</span>{" "}
               in{" "}
               <span className="font-bold text-primary capitalize">
                 {category}
               </span>
-            </p>
+            </article>
           </div>
-          <div className="card-actions">
+          <div className="flex items-center">
             <button
-              aria-label="Remove"
+              aria-label="Delete item"
               onClick={(e) => onDelete(id, e)}
-              className="btn btn-primary"
+              className="btn btn-primary hidden md:inline-flex"
             >
               Remove
+            </button>
+            <button
+              aria-label="Delete item"
+              onClick={(e) => onDelete(id, e)}
+              className="btn btn-primary md:hidden"
+            >
+              X
             </button>
           </div>
         </div>

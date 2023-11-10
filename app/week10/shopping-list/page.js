@@ -65,16 +65,18 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
 
       {user ? (
         <main>
           <h1 className="text-4xl font-bold mx-2 mb-4 max-w-lg">
             Shopping List
           </h1>
-          <div className="carousel w-screen">
-            <div className="carousel-item lg:max-wd-lg">
-              <div className="carousel-content-wrapper w-screen lg:w-auto">
+          <section className="carousel w-screen">
+            <div className="carousel-item md:w-1/2 lg:max-w-lg">
+              <div className="carousel-content-wrapper w-screen ">
                 <NewItem onAddItem={handleAddItem} />
                 <ItemList
                   items={items}
@@ -83,12 +85,12 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="carousel-item lg:max-wd-lg">
-              <div className="carousel-content-wrapper w-screen  lg:w-auto">
+            <div className="carousel-item md:w-1/2 lg:max-w-lg">
+              <div className="carousel-content-wrapper w-screen ">
                 <MealIdeas ingredient={selectedItemName} />
               </div>
             </div>
-          </div>
+          </section>
         </main>
       ) : (
         <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2">
