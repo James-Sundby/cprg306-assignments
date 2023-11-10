@@ -17,7 +17,14 @@ export default function Item({
       >
         <div className="card-body flex-row justify-between">
           <div>
-            <header className="card-title text-2xl">{name}</header>
+            <header className="card-title text-2xl pb-2">
+              <input
+                type="checkbox"
+                className="checkbox checkbox-lg checkbox-primary mr-2"
+                onClick={(e) => e.stopPropagation()}
+              />
+              {name}
+            </header>
             <article>
               Pick up <span className="font-bold text-primary">{quantity}</span>{" "}
               in{" "}
