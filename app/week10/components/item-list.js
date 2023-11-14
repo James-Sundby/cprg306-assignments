@@ -8,15 +8,15 @@ export default function ItemList({ items, onDelete, onItemSelect }) {
   const itemsData = [...items];
 
   // Adapted from provided Youtube video https://www.youtube.com/watch?v=s1XVfm5mIuU from Web Dev Simplified
-  const groupedItems = items.reduce((group, item) => {
-    const category = item.category;
-    if (group[category] == null) {
-      group[category] = [];
-    }
-    group[category].push(item);
-    group[category].sort((a, b) => a.name.localeCompare(b.name));
-    return group;
-  }, {});
+  // const groupedItems = items.reduce((group, item) => {
+  //   const category = item.category;
+  //   if (group[category] == null) {
+  //     group[category] = [];
+  //   }
+  //   group[category].push(item);
+  //   group[category].sort((a, b) => a.name.localeCompare(b.name));
+  //   return group;
+  // }, {});
 
   if (sortBy === "name") {
     itemsData.sort((a, b) => a.name.localeCompare(b.name));
@@ -43,13 +43,13 @@ export default function ItemList({ items, onDelete, onItemSelect }) {
             aria-label="Sort by Category"
             onClick={() => setSortBy("category")}
           />
-          <input
+          {/* <input
             className="join-item btn flex-1"
             type="radio"
             name="sort-options"
             aria-label="Sort by Grouped Categories"
             onClick={() => setSortBy("grouped")}
-          />
+          /> */}
         </div>
       </div>
       {(sortBy === "name" || sortBy === "category") && (

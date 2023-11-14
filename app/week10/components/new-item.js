@@ -23,7 +23,7 @@ export default function NewItem({ onAddItem }) {
   };
 
   const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
+    setQuantity(parseInt(event.target.value));
   };
 
   const handleCategoryChange = (event) => {
